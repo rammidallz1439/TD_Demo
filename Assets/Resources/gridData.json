@@ -1,0 +1,15 @@
+{
+    "grid": [
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        false,
+        false
+    ],
+    "rows": 3,
+    "columns": 3
+}
