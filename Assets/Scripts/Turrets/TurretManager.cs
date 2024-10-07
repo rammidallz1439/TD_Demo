@@ -6,7 +6,7 @@ using static UnityEngine.GraphicsBuffer;
 public class TurretManager
 {
     protected TurretHandler Handler;
-
+    GameObject ammo;
     #region Event Handler
     protected void BulletFireEventHandler(BulletFireEvent e)
     {
@@ -14,15 +14,24 @@ public class TurretManager
         {
             if (e.ShootingMachine.Target != null && e.ShootingMachine.TurretDataScriptable != null)
             {
-                GameObject ammo = Vault.ObjectPoolManager.Instance.Get(e.ShootingMachine.TurretDataScriptable.Bullet.gameObject.name, true);
+                if (e.ShootingMachine.TurretDataScriptable is RocketShooter rocket)
+                {
+                    ammo = MonoHelper.Instance.InstantiateObject(e.ShootingMachine.TurretDataScriptable.Bullet.gameObject);
+                }
+                else
+                {
+                    ammo = Vault.ObjectPoolManager.Instance.Get(e.ShootingMachine.TurretDataScriptable.Bullet.gameObject.name, true);
+
+                }
+                ammo.transform.GetComponent<Bullet>().Target = e.ShootingMachine.Target.transform;
                 ammo.transform.position = e.ShootingMachine.SpawnPoint.position;
                 ammo.transform.GetComponent<Bullet>().AttackPower = e.ShootingMachine.TurretDataScriptable.AttackPower;
-                ammo.transform.GetComponent<Bullet>().Target = e.ShootingMachine.Target.transform;
             }
             e.ShootingMachine.CoolDown = 1f / e.ShootingMachine.FireRate;
         }
         e.ShootingMachine.CoolDown -= Time.deltaTime;
     }
+
     protected void LookAtTargetEventHandler(LookAtTargetEvent e)
     {
         if (e.ShootingMachine.Target == null)
@@ -45,6 +54,7 @@ public class TurretManager
 
     }
 
+    //Moves Bullet to the Enemy
     protected void BulletEventhandler(BulletEvent e)
     {
         if (e.Target == null)
@@ -60,19 +70,22 @@ public class TurretManager
 
     }
 
+    // Moves Rocket in a Parabolic trajectory
     protected void RocketEventHandler(RocketEvent e)
     {
-        e.Current.transform.GetComponent<Bullet>().velocity += new Vector3(0, e.Gravity * Time.deltaTime, 0);
+        Bullet bullet = e.Current.transform.GetComponent<Bullet>();
 
-        e.Current.transform.position += e.Current.transform.GetComponent<Bullet>().velocity * Time.deltaTime;
+        bullet.velocity += new Vector3(0, e.Gravity * Time.deltaTime, 0); 
 
-        if (e.Current.transform.GetComponent<Bullet>().velocity != Vector3.zero)
+        e.Current.transform.position += bullet.velocity * Time.deltaTime;
+
+        if (bullet.velocity.sqrMagnitude > Mathf.Epsilon)
         {
-            e.Current.transform.rotation = Quaternion.LookRotation(e.Current.transform.GetComponent<Bullet>().velocity);
+            e.Current.transform.rotation = Quaternion.LookRotation(bullet.velocity);
         }
     }
 
-
+    //Blasts All Enemies in Range of Blast
     protected void RocketBlastEventHandler(RocketBlastEvent e)
     {
         Collider[] colliders = Physics.OverlapSphere(e.Current.transform.position, e.BlastRadius);
@@ -90,13 +103,13 @@ public class TurretManager
         }
     }
 
+    //Claculates the trajectory for Rocket Launcher
     protected void CalculateRocketVelocityEventHandler(CalcualteRocketVelocityEvent e)
     {
 
         if (e.BulletType == BulletType.Rocket && e.Current.Target != null)
         {
             Vector3 direction = e.Current.Target.transform.position - e.Current.transform.position;
-            float h = direction.y;
             direction.y = 0;
             float distance = direction.magnitude;
             float angle = e.LaunchAngle * Mathf.Deg2Rad;
@@ -117,14 +130,14 @@ public class TurretManager
         {
             if (e.ShootingMachine.Target != null && e.ShootingMachine.TurretDataScriptable != null)
             {
-                if(e.ShootingMachine.LaserPointer != null)
+                if (e.ShootingMachine.LaserPointer != null)
                 {
                     e.ShootingMachine.LaserPointer.gameObject.SetActive(true);
                     e.ShootingMachine.LaserPointer.transform.position = e.ShootingMachine.Target.transform.position + new Vector3(0, 1.5f, 0);
                     e.ShootingMachine.LaserPointer.AttackPower = e.ShootingMachine.TurretDataScriptable.AttackPower;
                     e.ShootingMachine.LaserPointer.Target = e.ShootingMachine.Target.transform;
                 }
-               
+
             }
             e.ShootingMachine.CoolDown = 1f / e.ShootingMachine.FireRate;
         }

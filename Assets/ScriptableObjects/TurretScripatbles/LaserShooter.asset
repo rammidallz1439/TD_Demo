@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b143cca51039a8a42b85de558ef1c4e2, type: 3}
   m_Name: LaserShooter
   m_EditorClassIdentifier: 
-  AttackPower: 15
-  Range: 10
+  AttackPower: 10
+  Range: 20
   Bullet: {fileID: 0}

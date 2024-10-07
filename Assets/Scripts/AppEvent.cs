@@ -13,11 +13,13 @@ public struct EnemySpawnEvent : GameEvent
 {
     public Wave Wave;
     public float Timer;
+    public float Speed;
 
-    public EnemySpawnEvent(Wave wave, float timer)
+    public EnemySpawnEvent(Wave wave, float timer, float speed)
     {
         Wave = wave;
         Timer = timer;
+        Speed = speed;
     }
 }
 
@@ -28,11 +30,12 @@ public struct IntialLevelSetUpEvent : GameEvent
 
 public struct EnemyMovementEvent : GameEvent
 {
-    public NavMeshAgent Agent;
+    public Enemy Enemy;
 
-    public EnemyMovementEvent(NavMeshAgent agent)
+    public EnemyMovementEvent(Enemy enemy)
     {
-        Agent = agent;
+        Enemy = enemy;
+
     }
 }
 

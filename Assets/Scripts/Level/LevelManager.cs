@@ -16,7 +16,7 @@ public class LevelManager
         Handler.WaveCount.text = "Wave: " + Handler.CurrentWaveCount + "/" + Handler.LevelDetails.WaveData.Waves.Count;
         Handler.CoinCount.text = GlobalManager.Instance.TotalCoins.ToString();
         Handler.Timer = Handler.CurrentWave.WaveTime;
-
+        Handler.SpawnRate = Handler.CurrentWave.EnemiesSpeed;
         Handler.RestartButton.onClick.AddListener(() => { SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); });
         Handler.PlayAgainButton.onClick.AddListener(() => { SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); });
     }
@@ -29,7 +29,8 @@ public class LevelManager
         }
         {
             Handler.CurrentSelectedBase.transform.DOMoveY(Handler.CurrentSelectedBase.InitialYPos, 0.5f);
-            Handler.CurrentSelectedBase.transform.GetComponent<MeshRenderer>().material.color = Handler.CurrentSelectedBase.GetColor();
+            if (Handler.CurrentSelectedBase.Occupied == false)
+                Handler.CurrentSelectedBase.transform.GetComponent<MeshRenderer>().material.color = Handler.CurrentSelectedBase.GetColor();
             Handler.CurrentSelectedBase = e.BaseHandler;
 
         }
@@ -48,6 +49,7 @@ public class LevelManager
                 GameObject obj = MonoHelper.Instance.InstantiateObject(e.Turret, Handler.CurrentSelectedBase.SpawnPoint.transform.position, Quaternion.identity);
                 Handler.CurrentSelectedBase.Occupied = true;
                 ShootingMachine machine = e.Turret.transform.GetComponent<ShootingMachine>();
+                machine.Range = machine.TurretDataScriptable.Range;
                 Vault.ObjectPoolManager.Instance.InitializePool(machine.TurretDataScriptable.Bullet.gameObject, 15);
             });
 
@@ -136,6 +138,7 @@ public class LevelManager
             Handler.WaveCount.text = "Wave: " + Handler.CurrentWaveCount + "/" + Handler.LevelDetails.WaveData.Waves.Count;
             Handler.CurrentWave = Handler.LevelDetails.WaveData.Waves[Handler.CurrentWaveCount - 1];
             Handler.Timer = Handler.CurrentWave.WaveTime;
+            Handler.SpawnRate = Handler.CurrentWave.EnemiesSpeed;
         }
     }
     #endregion

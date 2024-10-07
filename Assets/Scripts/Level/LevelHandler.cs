@@ -16,6 +16,7 @@ public class LevelHandler : MonoBehaviour
     public float Timer;
     public int CurrentWaveCount;
     public bool LevelCompleted;
+    public float SpawnRate;
 
     [Space(10)]
     [Header("UI")]

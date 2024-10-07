@@ -21,6 +21,7 @@ public class Wave
 {
     public List<EnemyData> EnemyData;
     public int WaveTime;
+    public float EnemiesSpeed;
 }
 
 
@@ -28,9 +29,6 @@ public class Wave
 public class EnemyData
 {
     public EnemyScriptable EnemyScriptable;
-    public float MaxCount;
-    public float TimeToStart;
-
 }
 
 [System.Serializable]

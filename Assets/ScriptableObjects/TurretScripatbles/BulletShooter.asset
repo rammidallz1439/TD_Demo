@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: BulletShooter
   m_EditorClassIdentifier: 
   AttackPower: 10
-  Range: 10
+  Range: 20
   Bullet: {fileID: 2677369215382896970, guid: 71cde2724db40214ebd437362cd8baa7, type: 3}

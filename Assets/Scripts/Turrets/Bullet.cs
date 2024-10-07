@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using Vault;
 using static UnityEngine.GraphicsBuffer;
@@ -20,9 +21,10 @@ public class Bullet : MonoBehaviour
     public Vector3 velocity;
     public GameObject BlastEffect = null;
 
+
     private void Start()
     {
-        if (Target != null)
+          if (Target != null)
             EventManager.Instance.TriggerEvent(new CalcualteRocketVelocityEvent(_bulletType, this, _launchAngle, _garvity));
     }
 

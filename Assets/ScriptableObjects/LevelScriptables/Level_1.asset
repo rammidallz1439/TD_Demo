@@ -17,92 +17,66 @@ MonoBehaviour:
     - EnemyData:
       - EnemyScriptable: {fileID: 11400000, guid: 9ce60e7e3cd53b44592b98b8ac243dbc,
           type: 2}
-        MaxCount: 0
-        TimeToStart: 0
       WaveTime: 10
+      EnemiesSpeed: 0
     - EnemyData:
       - EnemyScriptable: {fileID: 11400000, guid: 9ce60e7e3cd53b44592b98b8ac243dbc,
           type: 2}
-        MaxCount: 0
-        TimeToStart: 0
       - EnemyScriptable: {fileID: 11400000, guid: 6c17c4381b1866a4db2718ac7ee30e32,
           type: 2}
-        MaxCount: 20
-        TimeToStart: 5
       WaveTime: 15
+      EnemiesSpeed: 0.7
     - EnemyData:
       - EnemyScriptable: {fileID: 11400000, guid: 6c17c4381b1866a4db2718ac7ee30e32,
           type: 2}
-        MaxCount: 0
-        TimeToStart: 0
       WaveTime: 20
+      EnemiesSpeed: 0.8
     - EnemyData:
       - EnemyScriptable: {fileID: 11400000, guid: 6c17c4381b1866a4db2718ac7ee30e32,
           type: 2}
-        MaxCount: 0
-        TimeToStart: 0
       - EnemyScriptable: {fileID: 11400000, guid: 7e263d386a3513f4d9215d28b2adbba0,
           type: 2}
-        MaxCount: 20
-        TimeToStart: 5
       WaveTime: 25
+      EnemiesSpeed: 0.9
     - EnemyData:
       - EnemyScriptable: {fileID: 11400000, guid: 9ce60e7e3cd53b44592b98b8ac243dbc,
           type: 2}
-        MaxCount: 0
-        TimeToStart: 0
       - EnemyScriptable: {fileID: 11400000, guid: 7e263d386a3513f4d9215d28b2adbba0,
           type: 2}
-        MaxCount: 10
-        TimeToStart: 15
       WaveTime: 30
+      EnemiesSpeed: 1
     - EnemyData:
       - EnemyScriptable: {fileID: 11400000, guid: 9ce60e7e3cd53b44592b98b8ac243dbc,
           type: 2}
-        MaxCount: 0
-        TimeToStart: 0
       - EnemyScriptable: {fileID: 11400000, guid: 6c17c4381b1866a4db2718ac7ee30e32,
           type: 2}
-        MaxCount: 30
-        TimeToStart: 10
       WaveTime: 35
+      EnemiesSpeed: 1.1
     - EnemyData:
       - EnemyScriptable: {fileID: 11400000, guid: 9ce60e7e3cd53b44592b98b8ac243dbc,
           type: 2}
-        MaxCount: 0
-        TimeToStart: 0
       - EnemyScriptable: {fileID: 11400000, guid: 6c17c4381b1866a4db2718ac7ee30e32,
           type: 2}
-        MaxCount: 0
-        TimeToStart: 0
       - EnemyScriptable: {fileID: 11400000, guid: 7e263d386a3513f4d9215d28b2adbba0,
           type: 2}
-        MaxCount: 20
-        TimeToStart: 5
       WaveTime: 40
+      EnemiesSpeed: 1.2
     - EnemyData:
       - EnemyScriptable: {fileID: 11400000, guid: 6c17c4381b1866a4db2718ac7ee30e32,
           type: 2}
-        MaxCount: 0
-        TimeToStart: 0
       WaveTime: 45
+      EnemiesSpeed: 1.5
     - EnemyData:
       - EnemyScriptable: {fileID: 11400000, guid: 9ce60e7e3cd53b44592b98b8ac243dbc,
           type: 2}
-        MaxCount: 0
-        TimeToStart: 0
       WaveTime: 50
+      EnemiesSpeed: 1.8
     - EnemyData:
       - EnemyScriptable: {fileID: 11400000, guid: 9ce60e7e3cd53b44592b98b8ac243dbc,
           type: 2}
-        MaxCount: 0
-        TimeToStart: 0
       - EnemyScriptable: {fileID: 11400000, guid: 6c17c4381b1866a4db2718ac7ee30e32,
           type: 2}
-        MaxCount: 0
-        TimeToStart: 0
       - EnemyScriptable: {fileID: 11400000, guid: 7e263d386a3513f4d9215d28b2adbba0,
           type: 2}
-        MaxCount: 40
-        TimeToStart: 5
       WaveTime: 60
+      EnemiesSpeed: 2

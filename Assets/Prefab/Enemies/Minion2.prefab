@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5578803283253099994}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ff307277ca0014246be415f20f219475, type: 2}
+  - {fileID: 2100000, guid: f7e76685eb1840d4ebcccf33ef92956f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -93,10 +93,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2051279148739103905}
   - component: {fileID: 1153190842099863272}
-  - component: {fileID: 2999885240473746387}
-  - component: {fileID: 8588421928491077365}
+  - component: {fileID: 4773922099769783498}
   m_Layer: 0
-  m_Name: Minion
+  m_Name: Minion2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -116,7 +115,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2671562660868090257}
-  - {fileID: 8277236824462333056}
+  - {fileID: 8837669082460999054}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1153190842099863272
@@ -131,37 +130,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0c274d062b2de44d8f8c1c56ca92679, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 2
-  _agent: {fileID: 2999885240473746387}
+  Speed: 5
   Health: 0
-  _healthBar: {fileID: 973678331436045441}
-  _worldCanvas: {fileID: 1928087560698847149}
-  _dropValue: 10
+  _healthBar: {fileID: 430130554095783311}
+  _worldCanvas: {fileID: 1349640999443072675}
+  _dropValue: 20
   _Coin: {fileID: 6962304540837371318, guid: 17dc0b7eba3a87a49a6f2789f4bb7080, type: 3}
-  AttackPower: 10
---- !u!195 &2999885240473746387
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6852659035618061803}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.8
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 180
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!136 &8588421928491077365
+  AttackPower: 15
+  CurrentPoint: 0
+--- !u!136 &4773922099769783498
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -181,10 +158,10 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Height: 2.189246
+  m_Height: 2.1237888
   m_Direction: 1
-  m_Center: {x: 0, y: 0.86462295, z: 0}
---- !u!1001 &3825616583866487842
+  m_Center: {x: 0, y: 0.86189437, z: 0}
+--- !u!1001 &4425983172142091564
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -312,11 +289,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef18061a883c93144a44f04a66b57d0e, type: 3}
---- !u!114 &973678331436045441 stripped
+--- !u!114 &430130554095783311 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4076990537537224867, guid: ef18061a883c93144a44f04a66b57d0e,
     type: 3}
-  m_PrefabInstance: {fileID: 3825616583866487842}
+  m_PrefabInstance: {fileID: 4425983172142091564}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -324,15 +301,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!223 &1928087560698847149 stripped
+--- !u!223 &1349640999443072675 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 3447122233472404367, guid: ef18061a883c93144a44f04a66b57d0e,
     type: 3}
-  m_PrefabInstance: {fileID: 3825616583866487842}
+  m_PrefabInstance: {fileID: 4425983172142091564}
   m_PrefabAsset: {fileID: 0}
---- !u!224 &8277236824462333056 stripped
+--- !u!224 &8837669082460999054 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5172935070778425506, guid: ef18061a883c93144a44f04a66b57d0e,
     type: 3}
-  m_PrefabInstance: {fileID: 3825616583866487842}
+  m_PrefabInstance: {fileID: 4425983172142091564}
   m_PrefabAsset: {fileID: 0}

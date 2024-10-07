@@ -26,6 +26,7 @@ public class SelectionButton : MonoBehaviour
             PlayerPrefs.SetInt(GameConstants.CoinsCount,GlobalManager.Instance.TotalCoins);
             CoinsText.text = GlobalManager.Instance.TotalCoins.ToString();
             EventManager.Instance.TriggerEvent(new SpawnTurretEvent(turret));
+            Handler.CurrentSelectedBase.transform.GetComponent<MeshRenderer>().material.color = Color.green;
             SelectionPanel.SetActive(false);
 
         }

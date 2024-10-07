@@ -13,6 +13,7 @@ public class ShootingMachine : MonoBehaviour
 
     public float CoolDown;
     public float FireRate;
+    public float Range;
 
     [Space(10)]
     [Header("Laser Specific")]
